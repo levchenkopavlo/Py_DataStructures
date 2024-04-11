@@ -15,7 +15,10 @@ class History:
             print(f'{self.stack=}')
             print(f'{self.stack_forward=}')
         elif action == 'forward':
-            self.stack.append(self.stack_forward.pop())
+            if not self.stack_forward:
+                print(f'action not possible')
+            else:
+                self.stack.append(self.stack_forward.pop())
             print(f'{self.stack=}')
             print(f'{self.stack_forward=}')
 
@@ -29,6 +32,7 @@ history1.action('back')
 history1.action('back')
 history1.action('forward')
 history1.action('url:google.com.ua')
+history1.action('forward')
 # base action
 # new url
 # back
