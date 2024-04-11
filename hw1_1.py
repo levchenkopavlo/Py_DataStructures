@@ -16,19 +16,23 @@ class Node:
         self.prev = None  # Посилання на попередній вузол у двосв'язному списку
 
     def __str__(self):
-        return f'data: {self.data}, next: {self.next}, prev: {self.prev}'
-
+        # return f'data: {self.data}, next: {self.next}, prev: {self.prev}'
+        return f'data: {self.data} -> next: {self.next}'
 
 class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+
     @classmethod
     def info(cls):
         print(f'{cls.__dict__}')
 
+    def __str__(self):
+        return f'{self.head}'
+
     def search(self, data):
-        search_node = Node(data)
+        # search_node = Node(data)
         node = self.head
         while node is not None and node.data != data:
             node = node.next
@@ -47,9 +51,16 @@ class LinkedList:
             if self.search(data):
                 print(f"{data} already in the list")
             else:
-                self.tail.next=new_node
-                new_node.prev=self.tail
-                # new_node.prev=self.tail
+                last_node = self.tail
+                self.tail = new_node
+                self.tail.prev = last_node
+                last_node.next = self.tail
+    def delete(self,data):
+        node = self.head
+        while node is not None:
+            if node.data==data:
+                node.prev=
+            node = node.next
 
 
 my_list = LinkedList()
@@ -61,8 +72,11 @@ print(f'tail: {my_list.tail}')
 my_list.append(2)
 print(f'head: {my_list.head}')
 print(f'tail: {my_list.tail}')
+my_list.append(3)
+print(f'head: {my_list.head}')
+print(f'tail: {my_list.tail}')
 
 print(my_list.search(2))
 print()
-my_list.info()
 
+my_list.info()
