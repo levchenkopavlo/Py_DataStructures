@@ -1,15 +1,13 @@
 from collections import deque
-stack=deque
 
 
-from queue import LifoQueue
-stack=LifoQueue()
-stack.put(1)
-stack.put(2)
-stack.put(3)
+stack = deque()
+
+stack.append(1)
+stack.append(2)
+stack.append(3)
 
 print(f'{stack=}')
 
-print(f'дістанемо останній елемент {stack.get()}')
+print(f'Дістанемо останній елемент {stack.pop()}')
 print(f'{stack=}')
-print(f'дістанемо останній елемент {stack.get()}')
