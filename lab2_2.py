@@ -7,12 +7,11 @@ class History:
     def action(self, action):
         if action.startswith('url:'):
             self.stack.append(action)
-            self.stack_forward=[]
+            self.stack_forward = []
         elif action == 'back':
             self.stack_forward.append(self.stack.pop())
         elif action == 'forward':
             self.stack.append(self.stack_forward.pop())
-
 
 
 actions = ['url:', 'back', 'forward']
