@@ -59,7 +59,8 @@ class LinkedList:
         node = self.head
         while node is not None:
             if node.data==data:
-                node.prev=
+                node.prev.next=node.next
+                node.next.prev=
             node = node.next
 
 
