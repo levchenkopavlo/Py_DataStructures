@@ -22,9 +22,36 @@ class Stack:
     def insert(self, item):
         if len(self.stack) < Stack.capacity:
             self.stack.insert(0, item)
+            return None
         else:
             self.stack.insert(0, item)
             return self.stack.pop()
 
+    # def get_item(self):
+    #     if not self.stack.is_empty():
+    #         pass
+
     def get_len(self):
+        print(len(self.stack))
         return len(self.stack)
+
+    def is_empty(self):
+        if len(self.stack) == 0:
+            return True
+        else:
+            return False
+
+    def is_full(self):
+        if len(self.stack) == Stack.capacity:
+            return True
+        else:
+            return False
+
+    def clean(self):
+        self.stack = []
+
+
+stack1 = Stack()
+print(stack1.get_len())
+print(stack1.is_full())
+print(stack1.is_empty())
