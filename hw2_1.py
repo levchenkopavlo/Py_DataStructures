@@ -27,9 +27,12 @@ class Stack:
             self.stack.insert(0, item)
             return self.stack.pop()
 
-    # def get_item(self):
-    #     if not self.stack.is_empty():
-    #         pass
+    def get_item(self):
+        if not self.is_empty():
+            print("not empty")
+        else:
+            print("empty")
+
 
     def get_len(self):
         print(len(self.stack))
@@ -55,3 +58,4 @@ stack1 = Stack()
 print(stack1.get_len())
 print(stack1.is_full())
 print(stack1.is_empty())
+print(stack1.get_item())
