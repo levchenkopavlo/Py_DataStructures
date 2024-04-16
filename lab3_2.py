@@ -42,15 +42,4 @@ class ClinicQueue:
 clinic1 = ClinicQueue()
 
 
-class TaskSolver:
-    def __init__(self):
-        self.queue = PriorityQueue()
 
-    def solve_next_task(self):
-        if self.queue.empty():
-            print('no more task')
-            return
-
-        priority, task = self.queue.get()
-
-        print(f'виконую {task}')
