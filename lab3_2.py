@@ -22,7 +22,7 @@ class ClinicQueue:
             self.queue.put((priority, client))
 
     def pullHighestPriorityElement(self):
-        pass
+        return self.queue.get()
 
     def peek(self):
         pass
