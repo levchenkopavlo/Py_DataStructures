@@ -39,7 +39,9 @@ class ClinicQueue:
         self.queue = temp_queue
 
 
-clinic1 = ClinicQueue()
+queue1 = ClinicQueue()
 
-
+queue1.insertWithPriority(2,'Mary')
+queue1.insertWithPriority(3,'Sophy')
+queue1.insertWithPriority(1,'John')
 
