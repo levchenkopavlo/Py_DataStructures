@@ -44,4 +44,4 @@ queue1 = ClinicQueue()
 queue1.insertWithPriority(2,'Mary')
 queue1.insertWithPriority(3,'Sophy')
 queue1.insertWithPriority(1,'John')
-
+print(queue1.pullHighestPriorityElement())
