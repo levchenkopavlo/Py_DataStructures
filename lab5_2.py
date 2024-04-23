@@ -23,8 +23,6 @@ def read_data(file_name):
         return read_data
 
 
-print(type(read_data), read_data)
-
 file_name = "my_list.gz"
 try:
     while True:
@@ -44,7 +42,8 @@ try:
                 dump_data(int_numbers, file_name)
                 print('data saved')
             case "3":
-                int_numbers = list(map(int, input('input integer space separated: ').split()))
+                new_data = int(input('додати число до списку: '))
+                int_numbers.append(new_data)
                 print(int_numbers)
             case "4":
                 print(int_numbers)
