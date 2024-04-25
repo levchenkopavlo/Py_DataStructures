@@ -22,8 +22,8 @@ class UserData:
                     case "":
                         break
                     case "1":
-                        user_info = self.read_data(self.file_name)
-                        print('data loaded', user_info)
+                        self.user_info = self.read_data(self.file_name)
+                        print('data loaded', self.user_info)
                     case "2":
                         self.dump_data(self.user_info, self.file_name)
                         print('data saved')
@@ -47,12 +47,14 @@ class UserData:
         except(Exception) as e:
             print(e)
 
-    def dump_data(self, data, file_name):
+    @staticmethod
+    def dump_data(data, file_name):
         with gzip.open(file_name, 'wb') as file:
             serialized_data = pickle.dumps(data)
             file.write(serialized_data)
 
-    def read_data(self, file_name):
+    @staticmethod
+    def read_data(file_name):
         with gzip.open(file_name, 'rb') as file:
             serialized_data = file.read()
             read_data = pickle.loads(serialized_data)
