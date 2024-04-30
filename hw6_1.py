@@ -56,7 +56,7 @@ class Task:
         return f'{self.request}, {self.priority}, {self.timestamp}'
 
     def __lt__(self, other):
-        if self.request < other.request:
+        if self.timestamp < other.timestamp:
             return True
         else:
             return False
