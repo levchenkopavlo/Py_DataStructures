@@ -26,7 +26,7 @@ while True:
 
     if friends:
         if friends[0] in friends_list:
-            if friends_list[friends[0]]==friends[1]:
+            if friends[1] in friends_list[friends[0]]:
                 save_data(friends)
     else:
         break
