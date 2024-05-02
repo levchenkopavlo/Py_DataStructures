@@ -8,14 +8,14 @@ import json
 
 
 def save_data(data):
-    with open('friends.json', 'w') as file:
+    with open('friends.json', 'a') as file:
         json.dump(data, file)
 
 
 def load_data():
     with open(f'friends.json', 'r') as file:
-        data = json.load(file)
-    return data
+        data = file.readlines()
+    return [json.loads(item.strip()) for item in data]
 
 
 friends_list = {'John': ['Mery', 'Michael'], 'Katy': ['Andrew', 'Mery'], 'Bob': ['John', 'Andrew']}
@@ -27,9 +27,10 @@ while True:
     if friends:
         if friends[0] in friends_list:
             if friends[1] in friends_list[friends[0]]:
-                save_data(friends)
+                save_data({friends[0]: friends[1]})
     else:
         break
 
-
-load_data()
+data = load_data()
+for item in data:
+    print(data)
