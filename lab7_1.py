@@ -13,15 +13,17 @@ def save_data(data):
         file.write('\n')
 
 
-def load_data():
+def print_data():
     with open(f'friends.json', 'r') as file:
         data = file.readlines()
-    return data
+    for item in data:
+        print(json.loads(item.strip()))
 
 
 friends_list = {'John': ['Mery', 'Michael'], 'Katy': ['Andrew', 'Mery'], 'Bob': ['John', 'Andrew']}
 for key, value in friends_list.items():
     print(f'{key}: {value}')
+
 while True:
     friends = input('Input frends names (space separated):').split()
 
@@ -32,6 +34,4 @@ while True:
     else:
         break
 
-data = load_data()
-for item in data:
-    print(f'{item}')
+data = print_data()
