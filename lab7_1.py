@@ -10,12 +10,13 @@ import json
 def save_data(data):
     with open('friends.json', 'a') as file:
         json.dump(data, file)
+        file.write('\n')
 
 
 def load_data():
     with open(f'friends.json', 'r') as file:
         data = file.readlines()
-    return [json.loads(item.strip()) for item in data]
+    return data
 
 
 friends_list = {'John': ['Mery', 'Michael'], 'Katy': ['Andrew', 'Mery'], 'Bob': ['John', 'Andrew']}
@@ -33,4 +34,4 @@ while True:
 
 data = load_data()
 for item in data:
-    print(data)
+    print(f'{item}')
