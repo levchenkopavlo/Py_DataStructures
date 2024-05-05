@@ -28,11 +28,12 @@ class Client():
             data[key] = self.__dict__[key]
         with open(f'survey.json', 'a', encoding="utf-8") as file:
             json.dump(data, file)
-            # file.write('\n')
+            file.write('\n')
 
     def load_data(self):
         with open(f'survey.json', 'r', encoding="utf-8") as file:
-            data = json.load(file)
+            data = file.readlines()
+
         # print(data)
         # data = {}
         # for key in self.__dict__:
